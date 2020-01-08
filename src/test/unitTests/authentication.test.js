@@ -1,5 +1,5 @@
 import chai from 'chai';
-import Authentication from '../../utils/Authentication';
+import Authentication from '../../utils/authentication';
 
 const { expect } = chai;
 

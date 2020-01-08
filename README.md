@@ -1,1 +1,2 @@
 # Microservice-Backend
+[![Coverage Status](https://coveralls.io/repos/github/gmemmy/Microservice-Backend/badge.svg?branch=develop)](https://coveralls.io/github/gmemmy/Microservice-Backend?branch=develop)
