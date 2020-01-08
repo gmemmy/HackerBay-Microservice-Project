@@ -1,1 +1,2 @@
 import './unitTests';
+import './integrationTests';
