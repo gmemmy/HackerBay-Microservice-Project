@@ -8,7 +8,7 @@ dotenv.config();
  * @param {String} token - input string data
  * @returns {String} - scrambled data
  */
-const shuffleToken = (token) => token.split('').reverse().join('');
+const shuffleToken = token => token.split('').reverse().join('');
 
 /**
  * Class representing the Authentication methods

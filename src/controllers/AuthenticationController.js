@@ -1,4 +1,4 @@
-import Authentication from '../utils/Authentication';
+import { Authentication, HelperMethods } from '../utils';
 
 /**
  * Class representing the authentication controller
@@ -21,24 +21,15 @@ class AuthenticationController {
       const createdToken = await Authentication.getToken(user);
       if (createdToken) {
         delete user.password;
-        return res.status(200).json({
-          status: 200,
+        return HelperMethods.requestSuccessful(res, {
           success: true,
           message: 'Login successful!',
-          user,
-        });
+          user
+        }, 200)
       }
-      return res.status(500).json({
-        status: 500,
-        success: false,
-        message: 'An error occurred, please try again',
-      });
+      return HelperMethods.serverError(res);
     } catch (error) {
-      return res.status(500).json({
-        status: 500,
-        success: false,
-        message: 'An error occurred, please try again',
-      });
+      return HelperMethods.serverError(res);
     }
   }
 }
