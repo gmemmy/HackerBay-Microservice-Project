@@ -11,9 +11,7 @@ dotenv.config();
 const port = process.env.PORT || 3000;
 const app = express();
 
-if (app.get('env') !== 'test') {
-  app.use(morgan('dev'));
-}
+app.use(morgan('dev'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -28,6 +26,7 @@ app.listen(port, () => {
 routes(app);
 
 app.all('*', (req, res) => res.status(404).json({
+  status: 404,
   success: false,
   message: 'The page you are looking for does not exist',
 }));
