@@ -6,7 +6,8 @@
   "scripts": {
     "start": " nodemon --exec babel-node -- ./src/index.js",
     "build": "babel src --out-dir build",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "test": "nyc --reporter=html --reporter=text mocha --exit --require @babel/register --require @babel/polyfill src/test/index.js --timeout 3000",
     "lint": "eslint"
   },
   "repository": {
@@ -33,9 +34,16 @@
     "@babel/cli": "^7.7.7",
     "@babel/core": "^7.7.7",
     "@babel/node": "^7.7.7",
+    "@babel/polyfill": "^7.7.0",
     "@babel/preset-env": "^7.7.7",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "coveralls": "^3.0.9",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.19.1"
+    "eslint-plugin-import": "^2.19.1",
+    "mocha": "^7.0.0",
+    "nyc": "^15.0.0",
+    "sinon": "^8.0.4"
   }
 }
