@@ -1,7 +1,7 @@
 import sinon from 'sinon';
 import chai from 'chai';
-import Authorization from '../../middleware/Authorization';
-import Authentication from '../../utils/Authentication';
+import Authorization from '../../middleware/authorization';
+import Authentication from '../../utils/authentication';
 
 const { expect } = chai;
 const req = {

@@ -1,12 +1,13 @@
 {
-  "name": "microservice-backend",
+  "name": "hackerbay-microservice-project",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": " nodemon --exec babel-node -- ./src/index.js",
+    "dev-start": " nodemon --exec babel-node -- ./src/index.js",
     "build": "babel src --out-dir build",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "start": "node build/index.js",
     "test": "nyc --reporter=html --reporter=text mocha --exit --require @babel/register --require @babel/polyfill src/test/index.js --timeout 3000",
     "lint": "eslint"
   },
@@ -36,6 +37,8 @@
     "@babel/node": "^7.7.7",
     "@babel/polyfill": "^7.7.0",
     "@babel/preset-env": "^7.7.7",
+    "@babel/register": "^7.7.7",
+    "babel-eslint": "^10.0.3",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "coveralls": "^3.0.9",

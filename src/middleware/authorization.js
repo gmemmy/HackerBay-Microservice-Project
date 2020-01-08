@@ -1,4 +1,4 @@
-import Authentication from '../utils/Authentication';
+import Authentication from '../utils/authentication';
 
 /**
  * Class representing the Authentication methods
