@@ -48,8 +48,11 @@ class Authentication {
         } else {
           output = {
             success: true,
+<<<<<<< HEAD
             id: decoded.id,
             role: decoded.role,
+=======
+>>>>>>> chore: setup jsonwebtoken as middleware for protected routes
             username: decoded.username,
           };
         }
