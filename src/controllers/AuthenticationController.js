@@ -1,3 +1,5 @@
+import Authentication from '../utils/authentication';
+
 /**
  * Class representing the authentication controller
  * @class AuthenticationController
@@ -16,12 +18,20 @@ class AuthenticationController {
     try {
       const { username, password } = req.body;
       const user = { username, password };
-      delete user.password;
-      return res.status(200).json({
-        status: 200,
-        success: true,
-        message: 'Login successful!',
-        user,
+      const createdToken = await Authentication.getToken(user);
+      if (createdToken) {
+        delete user.password;
+        return res.status(200).json({
+          status: 200,
+          success: true,
+          message: 'Login successful!',
+          user,
+        });
+      }
+      return res.status(500).json({
+        status: 500,
+        success: false,
+        message: 'An error occurred, please try again',
       });
     } catch (error) {
       return res.status(500).json({
