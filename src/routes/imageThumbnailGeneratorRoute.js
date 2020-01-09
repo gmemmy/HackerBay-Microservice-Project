@@ -6,6 +6,7 @@ const imageThumbnailGenerator = app => {
   app.post(
     '/api/v1/thumbnail',
     Authorization.checkToken,
+    Validation.validateThumbnailGenerator,
     ThumbnailGeneratorController.imageThumbnailGenerator
   );
 };

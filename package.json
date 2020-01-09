@@ -8,7 +8,7 @@
     "build": "babel src --out-dir build",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "start": "node build/index.js",
-    "test": "nyc --reporter=html --reporter=text mocha --exit --require @babel/register --require @babel/polyfill src/test/index.js --timeout 3000",
+    "test": "nyc --reporter=html --reporter=text mocha --exit --require @babel/register --require @babel/polyfill src/test/index.js --timeout 15000",
     "lint": "eslint"
   },
   "repository": {
@@ -31,7 +31,8 @@
     "jsonpatch": "^3.0.1",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.9.1",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "valid-url": "^1.0.9"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.7",

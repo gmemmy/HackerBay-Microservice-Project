@@ -1,4 +1,5 @@
 import { HelperMethods } from "../utils";
+import { isWebUri } from 'valid-url';
 
 /**
  * Trims input values from user
@@ -24,7 +25,7 @@ const trimValues = objectWithValuesToTrim => {
 const allFieldsRequired = (res, message) => {
   return res.status(400).json({
     success: false,
-    message: `Invalid request. '${message}' field is required`
+    message: `Invalid request! '${message}' field is required`
   });
 };
 
@@ -88,6 +89,21 @@ class Validation {
       if (req.body.constructor.name === 'Object') {
         return next();
       }
+  }
+    /**
+   * @param {object} req - Request object
+   * @param {object} res - Response object
+   * @param {callback} next - The callback that passes the request to the next handler
+   * @returns {object} res - Response object when query is invalid
+   * @memberof Validation
+   */
+  static validateThumbnailGenerator(req, res, next) {
+    const { image } = req.body;
+    if (!image) return allFieldsRequired(res, 'image');
+    if (!isWebUri(image)) {
+      return HelperMethods.clientError(res,'Invalid! Please input a public image URL')
+    }
+    return next();
   }
 }
 

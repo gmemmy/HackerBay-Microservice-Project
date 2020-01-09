@@ -22,16 +22,15 @@ class ThumbnailGeneratorController {
     try {
       const { image } = req.body;
        await download(`${image}`, 'image.jpeg', async () => {
-         try {
           const thumbnail = await imageThumbnail('./image.jpeg', options);
-          return HelperMethods.requestSuccessful(res, {
-            success: true,
-            message: 'Thumbnail image generated successfully!',
-            thumbnail
-          }, 200)
-         } catch(err) {
-           HelperMethods.clientError(res, 'Invalid MIME type! Only \'.JPEG\' MIME type is supported.');
-         }
+          if (thumbnail) {
+            return HelperMethods.requestSuccessful(res, {
+              success: true,
+              message: 'Thumbnail image generated successfully!',
+              thumbnail
+            }, 200)
+          }
+          HelperMethods.serverError(res)
       })
     } catch (err) {
       HelperMethods.serverError(res);
