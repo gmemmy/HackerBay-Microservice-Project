@@ -47,7 +47,7 @@ describe('Integration tests for the user controller', () => {
       expect(response.body.success).to.equal(false);
       expect(response.body).to.have.property('message');
       expect(response.body.message)
-        .to.equal('Invalid request. \'password\' field is required');
+        .to.equal('Invalid request! \'password\' field is required');
     });
     it('should return client error when user details are missing', async () => {
       const response = await chai.request(app).post('/api/v1/auth/login')
@@ -57,7 +57,7 @@ describe('Integration tests for the user controller', () => {
       expect(response.body.success).to.equal(false);
       expect(response.body).to.have.property('message');
       expect(response.body.message)
-        .to.equal('Invalid request. \'username\' field is required');
+        .to.equal('Invalid request! \'username\' field is required');
     });
   });
 });

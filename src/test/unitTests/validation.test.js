@@ -21,7 +21,7 @@ describe('Unit tests for the Validation methods', () => {
     expect(response).to.have.property('success');
     expect(response.success).to.equal(false);
     expect(response).to.have.property('message');
-    expect(response.message).to.equal('Invalid request. \'name\' field is required');
+    expect(response.message).to.equal('Invalid request! \'name\' field is required');
   });
   it('should trim the request body', () => {
     const response = trimValues(req);
@@ -31,9 +31,10 @@ describe('Unit tests for the Validation methods', () => {
     req.body = trimValues(req);
     const emptyField = checkForEmptyFields(req.body);
     const response = allFieldsRequired(res, emptyField);
+    expect(response).to.be.an('object');
     expect(response).to.have.property('success');
     expect(response.success).to.equal(false);
     expect(response).to.have.property('message');
-    expect(response.message).to.equal('Invalid request. \'body\' field is required');
+    expect(response.message).to.equal('Invalid request! \'body\' field is required');
   });
 });
