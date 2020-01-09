@@ -1,5 +1,5 @@
 import AuthenticationController from '../controllers/AuthenticationController';
-import Validation from '../validation';
+import { Validation } from '../validation';
 
 const authRoute = app => {
   app.post(

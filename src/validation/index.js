@@ -1,3 +1,5 @@
+import { HelperMethods } from "../utils";
+
 /**
  * Trims input values from user
  * @param {object} objectWithValuesToTrim - request body to trim
@@ -20,7 +22,7 @@ const trimValues = objectWithValuesToTrim => {
  * @returns {res} - Response object
  */
 const allFieldsRequired = (res, message) => {
-  res.status(400).send({
+  return res.status(400).json({
     success: false,
     message: `Invalid request. '${message}' field is required`
   });
@@ -50,7 +52,7 @@ class Validation {
    * @param {object} res - Response object
    * @param {callback} next - The callback that passes the request to the next handler
    * @returns {object} res - Response object when query is invalid
-   * @memberof Validate
+   * @memberof Validation
    */
   static validateUserInput(req, res, next) {
     req.body = trimValues(req.body);
@@ -64,7 +66,7 @@ class Validation {
    * @param {object} res - Response object
    * @param {callback} next - The callback that passes the request to the next handler
    * @returns {object} res - Response object when query is invalid
-   * @memberof Validate
+   * @memberof Validation
    */
   static validateUserLogin(req, res, next) {
     req.body = trimValues(req.body);
@@ -73,6 +75,22 @@ class Validation {
     if (!password) return allFieldsRequired(res, 'password');
     next();
   }
+
+    /**
+   * @param {object} req - Request object
+   * @param {object} res - Response object
+   * @param {callback} next - The callback that passes the request to the next handler
+   * @returns {object} res - Response object when query is invalid
+   * @memberof Validation
+   */
+  static validateJsonInput(req, res, next) {
+      req.body = trimValues(req.body);
+      if (req.body.constructor.name === 'Object') {
+        return next();
+      }
+  }
 }
 
-export default Validation;
+export {
+  Validation, allFieldsRequired, trimValues, checkForEmptyFields
+};
