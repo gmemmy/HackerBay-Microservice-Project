@@ -24,7 +24,8 @@ class AuthenticationController {
         return HelperMethods.requestSuccessful(res, {
           success: true,
           message: 'Login successful!',
-          user
+          user,
+          token: createdToken
         }, 200)
       }
       return HelperMethods.serverError(res);

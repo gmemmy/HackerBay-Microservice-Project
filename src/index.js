@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import routes from './routes/AuthRoute';
+import routes from './routes';
 
 dotenv.config();
 

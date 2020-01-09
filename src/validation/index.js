@@ -1,3 +1,5 @@
+import { HelperMethods } from "../utils";
+
 /**
  * Trims input values from user
  * @param {object} objectWithValuesToTrim - request body to trim
@@ -50,7 +52,7 @@ class Validation {
    * @param {object} res - Response object
    * @param {callback} next - The callback that passes the request to the next handler
    * @returns {object} res - Response object when query is invalid
-   * @memberof Validate
+   * @memberof Validation
    */
   static validateUserInput(req, res, next) {
     req.body = trimValues(req.body);
@@ -64,7 +66,7 @@ class Validation {
    * @param {object} res - Response object
    * @param {callback} next - The callback that passes the request to the next handler
    * @returns {object} res - Response object when query is invalid
-   * @memberof Validate
+   * @memberof Validation
    */
   static validateUserLogin(req, res, next) {
     req.body = trimValues(req.body);
@@ -72,6 +74,24 @@ class Validation {
     if (!username) return allFieldsRequired(res, 'username');
     if (!password) return allFieldsRequired(res, 'password');
     next();
+  }
+
+    /**
+   * @param {object} req - Request object
+   * @param {object} res - Response object
+   * @param {callback} next - The callback that passes the request to the next handler
+   * @returns {object} res - Response object when query is invalid
+   * @memberof Validation
+   */
+  static validateJsonInput(req, res, next) {
+    try {
+      req.body = trimValues(req.body);
+      const parsed = !!JSON.parse(req.body) && req.body;
+      if (parsed) {
+        return next();
+      }
+    } catch (error) {}
+    return HelperMethods.clientError(res, 'Please input a valid JSON doc.', 400) 
   }
 }
 
