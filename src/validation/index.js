@@ -84,14 +84,12 @@ class Validation {
    * @memberof Validation
    */
   static validateJsonInput(req, res, next) {
-    try {
       req.body = trimValues(req.body);
-      const parsed = !!JSON.parse(req.body) && req.body;
-      if (parsed) {
+      if (req.body.constructor.name === 'Object') {
         return next();
+      } else {
+        return HelperMethods.clientError(res, 'Please input a valid JSON doc.', 400);
       }
-    } catch (error) {}
-    return HelperMethods.clientError(res, 'Please input a valid JSON doc.', 400) 
   }
 }
 

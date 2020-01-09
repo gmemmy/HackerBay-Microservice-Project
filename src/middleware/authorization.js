@@ -18,7 +18,7 @@ class Authorization {
    * to invalid token or no token in the request
    */
   static async checkToken(req, res, next) {
-    const token = req.headers.authorization || req.query.token;
+    const token = req.headers.authorization || req.query.token || req.body.token;
     if (!token) {
       return res.status(401).json({
         status: 401,
