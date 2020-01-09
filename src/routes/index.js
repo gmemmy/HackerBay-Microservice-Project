@@ -1,5 +1,6 @@
 import authRoute from './authRoute';
 import jsonPatcherRoute from './jsonPatcherRoute';
+import imageThumbnailGenerator from './imageThumbnailGeneratorRoute';
 
 /**
  * Handles request
@@ -15,6 +16,7 @@ const routes = app => {
   });
   authRoute(app);
   jsonPatcherRoute(app);
+  imageThumbnailGenerator(app);
 };
 
 export default routes;
