@@ -25,7 +25,7 @@ class JsonPatcherController {
       if (patchedDoc) {
         return HelperMethods.requestSuccessful(res, {
           success: true,
-          message: 'JSON object patched successfully',
+          message: 'JSON object patched successfully!',
           patchedDoc
         }, 200)
       }

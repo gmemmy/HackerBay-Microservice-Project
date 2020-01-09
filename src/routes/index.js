@@ -1,5 +1,5 @@
-import authRoute from './AuthRoute';
-import jsonPatcherRoute from  './JsonPatcherRoute';
+import authRoute from './authRoute';
+import jsonPatcherRoute from './jsonPatcherRoute';
 
 /**
  * Handles request
