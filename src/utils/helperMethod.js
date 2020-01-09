@@ -24,8 +24,8 @@ class HelperMethods {
    * @param {number} status = Status code of the client error
    * @returns {object} res - The HTTP response object
    */
-  static clientError(res, message, status = 400) {
-    return res.status(status).json({
+  static clientError(res, message) {
+    return res.status(400).json({
       success: false,
       message,
     });
@@ -38,8 +38,8 @@ class HelperMethods {
    * @param {number} status = Status code of the successful request
    * @returns {object} res - HTTP response object
    */
-  static requestSuccessful(res, payload, status = 200) {
-    return res.status(status).json({ data: { ...payload } });
+  static requestSuccessful(res, payload) {
+    return res.status(200).json({ data: { ...payload } });
   }
 }
 

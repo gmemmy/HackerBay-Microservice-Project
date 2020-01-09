@@ -1,4 +1,4 @@
-import Validation from '../validation';
+import { Validation } from '../validation';
 import JsonPatcherController from '../controllers/JsonPatcherController';
 import Authorization from '../middleware/authorization';
 

@@ -10,7 +10,7 @@ const routes = app => {
   app.get('/api/v1/', (req, res) => {
     res.status(200).send({
       success: true,
-      message: 'Welcome to the BareFoot-Nomad API'
+      message: 'Welcome to the Microservice Project'
     });
   });
   authRoute(app);

@@ -22,7 +22,7 @@ const trimValues = objectWithValuesToTrim => {
  * @returns {res} - Response object
  */
 const allFieldsRequired = (res, message) => {
-  res.status(400).send({
+  return res.status(400).json({
     success: false,
     message: `Invalid request. '${message}' field is required`
   });
@@ -87,10 +87,10 @@ class Validation {
       req.body = trimValues(req.body);
       if (req.body.constructor.name === 'Object') {
         return next();
-      } else {
-        return HelperMethods.clientError(res, 'Please input a valid JSON doc.', 400);
       }
   }
 }
 
-export default Validation;
+export {
+  Validation, allFieldsRequired, trimValues, checkForEmptyFields
+};

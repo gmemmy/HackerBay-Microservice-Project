@@ -18,7 +18,7 @@ describe('Unit tests for helper methods', () => {
   });
   it('should return 400 status code and the error '
     + 'message when "clientError" method is called', () => {
-    const response = HelperMethods.clientError(res, 'custom client error message');
+    const response = HelperMethods.clientError(res, 'custom client error message',);
     expect(response).to.have.property('message');
     expect(response).to.have.property('success');
     expect(response.success).to.equal(false);
