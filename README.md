@@ -100,6 +100,7 @@ Local Server - `localhost:3000`
 * [Node/Express](https://nodejs.org/en/) A JavaScript runtime built on Chrome's V8 JavaScript engine.
 * [Swagger](https://swagger.io/) Used for API documentation. Simplify API development for developers by helping to document APIs.
 * [NPM](https://www.npmjs.com/) Used as the package manager for the app. A fast, reliable, and secure dependency management system.
+* [The docker image for this project is available on Dockerhub](https://hub.docker.com/layers/gmemmy/hackerbay-microservice-project/testing/images/sha256-56a8a30ccf8cc6a5b60e107eb33e812fd0bd34c47e067a0089a4ef10dbf5e825)
 
 ## REST API Docs
 The API documentation is done using swagger. It can be viewed locally on - `localhost:3000/api-docs`
