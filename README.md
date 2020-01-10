@@ -102,7 +102,7 @@ Local Server - `localhost:3000`
 * [NPM](https://www.npmjs.com/) Used as the package manager for the app. A fast, reliable, and secure dependency management system.
 
 ## REST API Docs
-The Api documentation is done using swagger. It can be viewed locally on - `localhost:3000/api-docs`
+The API documentation is done using swagger. It can be viewed locally on - `localhost:3000/api-docs`
 
 ## JWT Authentication
 The API endpoints are being authenticated using [JWT(Json Web Token)](https://jwt.io/).
