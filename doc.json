@@ -1,0 +1,135 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is the API documentation for the Hackerbay Microservice Project.",
+    "version": "1.0.0",
+    "title": "Hackerbay Microservice Project",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "nuelojay22@gmail.com"
+    },
+    "license": {
+      "name": "MIT License",
+      "url": "https://www.gnu.org/licenses/gpl-3.0.en.html"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "Authentication",
+      "description": "User authentication"
+    },
+    {
+      "name": "JSON patcher",
+      "description": "JSON object patcher"
+    },
+    {
+      "name": "Image thumbnail generator",
+      "description": "Image thumbnail generator"
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/patch": {
+      "post": {
+        "tags": [
+          "JSON patcher"
+        ],
+        "summary": "patches a JSON object",
+        "description": "This API patches the value of the first key in a JSON object",
+        "operationId": "patch",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "key",
+            "description": "The JSON property",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "JSON object patched successfully!"
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Enables a user to login",
+        "description": "Authenticate a user",
+        "operationId": "login",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User log in details",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Login successful!"
+          },
+          "400": {
+            "description": "Invalid request! 'username' field is required"
+          }
+        }
+      }
+    },
+    "/thumbnail": {
+      "post": {
+        "tags": [
+          "Image thumbnail generator"
+        ],
+        "summary": "Generates a thumbnail from an image",
+        "description": "Downloads an image from a public image URL and resizes it to 5x50, then generates a thumbnail.",
+        "operationId": "thumbnail",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "image",
+            "description": "Public image URL",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "You have been signed in successfully!"
+          },
+          "401": {
+            "description": "Could not sign in. The email and password do not match"
+          }
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}
