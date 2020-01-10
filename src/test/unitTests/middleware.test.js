@@ -12,7 +12,7 @@ const req = {
     token: () => {},
   },
   headers: {
-    'x-access-token': undefined,
+    authorization: undefined,
   },
 };
 const res = {};

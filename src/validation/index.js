@@ -43,7 +43,7 @@ const checkForEmptyFields = requestBody => {
 };
 
 /**
- * class representing an handler's validation
+ * class representing an route handlers' validation
  * @class Validate
  * @description Validation for user inputs in all requests
  */

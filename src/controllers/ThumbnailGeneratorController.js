@@ -2,7 +2,7 @@ import { HelperMethods } from '../utils';
 import imageThumbnail from 'image-thumbnail';
 import download from '../utils/imageDownloadModule';
 
-let options = { height: 150, width: 150 }
+let options = { height: 50, width: 50 }
 
 /**
  * Class representing the Thumbnail Generator controller
