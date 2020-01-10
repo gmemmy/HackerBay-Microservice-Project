@@ -31,7 +31,7 @@ class JsonPatcherController {
       }
       return HelperMethods.serverError(res);
     } catch (error) {
-        return HelperMethods.serverError(res);
+      return HelperMethods.clientError(res, 'Invalid! Only JSON objects are supported.');
     }
   }
 }
